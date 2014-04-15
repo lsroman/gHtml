@@ -15,13 +15,22 @@ module.exports = function(grunt) {
         clean: {
             file: ['tmp']
         },
+        copy: {
+            main: {
+                files: [{
+                    expand: true,
+                    src: ['example/bootstrap/**'],
+                    dest: 'tmp/assets/'
+                }]
+            }
+        },
         ghtml: {
             tmp: {
                 options: {
                     template: 'template/'
                 },
                 files: {
-                    'tmp/': 'example/**/*.css'
+                    'tmp/': 'example/bootstrap/**/*.{css,scss,sass,less,styl}'
                 }
             }
         }
@@ -33,7 +42,8 @@ module.exports = function(grunt) {
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // By default, lint and run all tests.
-    grunt.registerTask('default', ['jshint', 'ghtml']);
+    grunt.registerTask('default', ['clean', 'jshint', 'ghtml', 'copy']);
 };

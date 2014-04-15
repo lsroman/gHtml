@@ -65,7 +65,7 @@ module.exports = function(grunt){
 
         // Parse
         dss.parse(grunt.file.read(filename), { file: filename }, function(parsed) {
-
+          console.log(parsed);
           parsed.blocks.forEach(function(file){
             file.state.forEach(function(state){
               var html = handlebars.compile(file.markup.example)({

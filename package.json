@@ -21,7 +21,8 @@
     "grunt-contrib-clean": "~0.4.0",
     "dss": "1.0.3",
     "grunt": "~0.4.0",
-    "handlebars": "~2.0.0-alpha.2"
+    "handlebars": "~2.0.0-alpha.2",
+    "grunt-contrib-copy": "^0.5.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.0"
