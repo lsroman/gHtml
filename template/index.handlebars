@@ -3,9 +3,9 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>{{project.name}} styleguide</title>  
-  <link rel="stylesheet" href="assets/js/prettify/prettify.css?v=1" type="text/css" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=1" type="text/css" />
-  <link rel="stylesheet" href="assets/example/foo.css?v=1" type="text/css" />
+  <link rel="stylesheet" href="assets/js/prettify/prettify.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="{{style}}" type="text/css" />
   <script src="assets/js/prettify/prettify.js?v=1"></script>
 </head>
 <body onload="prettyPrint()">
@@ -30,6 +30,7 @@
     <div class="styleguide">
 
       {{#files}}
+      {{#if blocks}}
       <div class="file">
         
         <h3 id="{{file}}">{{file}}</h3>
@@ -69,6 +70,7 @@
         {{/blocks}}
 
       </div>
+      {{/if}}
       {{/files}}
 
     </div>

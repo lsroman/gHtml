@@ -12,7 +12,6 @@ var dss = require('dss');
 
 // Expose
 module.exports = function(grunt){
-
   // Register DSS
   grunt.registerMultiTask('ghtml', 'Parse DSS comment blocks', function(){
 
@@ -27,6 +26,8 @@ module.exports = function(grunt){
       include_empty_files: true
     });
 
+    console.log();
+
     // Output options if --verbose cl option is passed
     grunt.verbose.writeflags(options, 'Options');
 
@@ -34,7 +35,7 @@ module.exports = function(grunt){
     for(var key in options.parsers){
       dss.parser(key, options.parsers[key]);
     }
-
+    // console.log(this.files)
     // Build Documentation
     this.files.forEach(function(f){
 
@@ -49,7 +50,6 @@ module.exports = function(grunt){
           return true;
         }
       });
-
       // Setup
       var files = src,
           template_dir = options.template,
@@ -65,7 +65,7 @@ module.exports = function(grunt){
 
         // Parse
         dss.parse(grunt.file.read(filename), { file: filename }, function(parsed) {
-          console.log(parsed);
+          // console.log(parsed);
           parsed.blocks.forEach(function(file){
             file.state.forEach(function(state){
               var html = handlebars.compile(file.markup.example)({
@@ -117,8 +117,11 @@ module.exports = function(grunt){
             });
 
 
+            // console.log(this.root.global)
+
             // Create HTML ouput
             var html = handlebars.compile(grunt.file.read(template_filepath))({
+              style: ['../'+options.style],
               project: grunt.file.readJSON('package.json'),
               files: styleguide
             });
