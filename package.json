@@ -16,12 +16,12 @@
   "engines": {
     "node": ">= 0.8.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "dss": "1.0.3",
     "handlebars": "~2.0.0-alpha.2"
   },
-  "peerDependencies": {
-  },
+  "devDependencies": {},
+  "peerDependencies": {},
   "keywords": [
     "gruntplugin"
   ],
