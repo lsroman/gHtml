@@ -1,5 +1,5 @@
 {
-  "name": "gHtml",
+  "name": "grunt-ghtml",
   "description": "Generation css documents to html",
   "version": "0.0.1",
   "homepage": "https://github.com/lsroman/gHtml",
